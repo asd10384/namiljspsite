@@ -2,10 +2,10 @@
   "name": "namiljspsite",
   "version": "1.0.0",
   "description": "node.js 사이트 제작될 예정",
-  "main": "app.js",
+  "main": "index.js",
   "scripts": {
-    "start": "npm install && node app.js",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "start": "npm install && node index.js",
+    ".": "node index.js"
   },
   "repository": {
     "type": "git",
