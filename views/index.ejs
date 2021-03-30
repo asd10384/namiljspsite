@@ -1,9 +1,88 @@
+<!doctype html>
+<html lang='ko'>
+    <head>
+        <base href="/" />
+        <meta charset='utf-8' />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <link rel="stylesheet" type="text/css" href="/style.css" />
+        <link rel="icon" href="/images/favicon.ico" />
+        
+        <script src="https://code.jquery.com/jquery-latest.min.js" type="text/javascript"></script>
+        <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/css/toastr.min.css" />
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js" type="text/javascript"></script>
+        
+        <!-- <script src="./js/main.js" type="text/javascript"></script>
+        <script src="./js/openfile.js" type="text/javascript"></script>
+        <script src="./js/query.js" type="text/javascript"></script>
+        <script src="./js/clock.js" type="text/javascript"></script>
+        <script src="./js/notice.js" type="text/javascript"></script> -->
+        
+        <title id="main_title">ㆍ사이트 모음ㆍ</title>
 
-<div id="wrap">
-    <span class="title">Hello! <%=email%></span>
-    <div class="user">
-        <input type="button" class="btn" onclick=" location.href='/login'" value="LOGIN"/>
-        <input type="button" class="btn" onclick=" location.href='/signup'" value="SIGNUP"/>
-        <input type="button" class="btn" onclick=" location.href='/logout'" value="LOGOUT"/>
-    </div>
-</div>
+        <meta name="author" content="허승한" />
+        <meta name="email" content="tmdgks0466@naver.com" />
+        
+        <meta name="title" content="사이트 모음" />
+        <meta name="description" content="남일고 관련 사이트" />
+        <meta property="og:site_name" content="namilsite.kro.kr" />
+        <meta property="og:type" content="website" />
+        <meta property="og:locale" content="ko_KR" />
+        <meta property="url" content="https://namilsite.netlify.app" />
+
+        <meta property="image" content="https://namilsite.netlify.app/images/namil_logo.png" />
+        <meta property="image:type" content="image/png" />
+        <meta property="image:alt" content="남일고 사이트 모음" />
+
+        <meta property="og:title" content="사이트 모음" />
+        <meta name="og:description" content="남일고 관련 사이트" />
+        <meta property="og:site_name" content="namilsite.kro.kr" />
+        <meta property="og:type" content="website" />
+        <meta property="og:locale" content="ko_KR" />
+        <meta property="og:url" content="https://namilsite.netlify.app" />
+
+        <meta property="og:image" content="https://namilsite.netlify.app/images/namil_logo.png" />
+        <meta property="og:image:type" content="image/png" />
+        <meta property="og:image:alt" content="남일고 사이트 모음" />
+    </head>
+
+    <body>
+        <div id="logo">
+            <a href="/"><img src="/images/logo.png" /></a>
+        </div>
+        <div id="clock">
+            <span id="nowTimes"><a href="/clock" id="realtime"></a></span>
+        </div>
+        <div id='menu'>
+            <ul>
+                <li class='sub'><a href='/login' title="로그인"><span>로그인</span></a></li>
+                <li class='sub'><a href='/signup' title="회원가입"><span>회원가입</span></a></li>
+                <li class='has-sub'><a href='#'><span>사이트모음</span></a>
+                    <ul>
+                        <li><a href='http://school.busanedu.net/bsnamil-h/main.do' target="_blank"><span>ㆍ 학교홈페이지</span></a></li>
+                        <li><a href='/meal'><span>ㆍ 학교급식</span></a></li>
+                        <li><a href="https://www.hscredit.kr"><span>ㆍ 고교학점제</span></a></li>
+                        <li class='last'><a href="https://www.hscredit.net"><span>ㆍ 고교학점제<br/>&ensp;&ensp;&nbsp;(수강신청)</span></a></li>
+                    </ul>
+                </li>
+                <li class='has-sub'><a href='#'><span>수업사이트</span></a>
+                    <ul>
+                        <li><a href='/zoomid'><span>ㆍ ZOOM 번호</span></a></li>
+                        <li><a href="/selecttime"><span>ㆍ 선택&합반 시간표</span></a></li>
+                        <li><a href="/classtime"><span>ㆍ 학교시간표</span></a></li>
+                        <li><a href='https://hoc3.ebssw.kr/onlineClass/search/onlineClassSearchView.do?schulCcode=01395&schCssTyp=online_high' target="_blank"><span>ㆍ 온라인클래스</span></a></li>
+                        <li><a href='https://www.classting.com/news' target="_blank"><span>ㆍ 클래스팅</span></a></li>
+                        <li class='last'><a href='https://classroom.google.com' target="_blank"><span>ㆍ 클래스룸</span></a></li>
+                    </ul>
+                </li>
+                <li class='has-sub'><a href='#'><span>예전사이트</span></a>
+                    <ul>
+                        <li><a href='https://namilfirstsite.netlify.app' target="_blank"><span>ㆍ 초기사이트</span></a></li>
+                        <li><a href='https://namilsimplesite.netlify.app' target="_blank"><span>ㆍ 두번째사이트</span></a></li>
+                        <li class='last'><a href='https://namilsite.netlify.app' target="_blank"><span>ㆍ 현재사이트</span></a></li>
+                    </ul>
+                </li>
+            </ul>
+        </div>
+        <div id="main"></div>
+    </body>
+</html>

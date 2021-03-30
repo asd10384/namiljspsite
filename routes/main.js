@@ -8,7 +8,7 @@ const LocalStrategy = require('passport-local').Strategy;
 const router = express.Router();
 const User = require('../modules/user');
 
-router.get('/', (req, res) => res.render('index', {email: (req.user) ? req.user.name : ''}));
+router.get('/', (req, res) => res.render('index', {name: (req.user) ? req.user.name : ''}));
 router.get("/login", (req, res) => res.render("login", {message: req.flash('login_message')}));
 router.get("/signup", (req, res) => res.render("signup", {page: "signup"}));
 router.get('/logout', function(req, res) {
@@ -27,16 +27,16 @@ passport.deserializeUser(function (user, done) {
     done(null, user);
 });
 passport.use(new LocalStrategy({
-    usernameField: 'email',
+    usernameField: 'id',
     passwordField : 'password',
     passReqToCallback : true //request callback 여부
 },
-function (req, email, password, done) {
-    User.findOne({email: email, password: crypto.createHash('sha512').update(password).digest('base64')}, function(err, user){
+function (req, id, password, done) {
+    User.findOne({id: id, password: crypto.createHash('sha512').update(password).digest('base64')}, function(err, user){
         if (err) {
             throw err;
         } else if (!user) {
-            return done(null, false, req.flash('login_message','이메일 또는 비밀번호를 확인하세요.')); // 로그인 실패
+            return done(null, false, req.flash('login_message','아이디 또는 비밀번호를 확인하세요.')); // 로그인 실패
         } else {
             return done(null, user); // 로그인 성공
         }
@@ -54,16 +54,17 @@ function (req, res) {
 // 회원가입 시작
 router.post("/signup", (req, res, next) => {
     console.log(req.body);
-    User.find({ email:req.body.email })
+    User.find({ id: req.body.id })
         .exec()
         .then(user => {
             if (user.length >= 1) {
-                res.send('<script type="text/javascript">alert("이미 존재하는 이메일입니다."); window.location="/signup"; </script>');
+                res.send('<script type="text/javascript">alert("이미 존재하는 아이디입니다."); window.location="/signup"; </script>');
             } else {
                 const user = new User({
                     _id: new mongoose.Types.ObjectId(),
                     name: req.body.name,
-                    email: req.body.email,
+                    class: req.body.class,
+                    id: req.body.id,
                     password: crypto.createHash('sha512').update(req.body.password).digest('base64') 
                 });
                 user.save()

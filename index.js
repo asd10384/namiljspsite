@@ -12,10 +12,10 @@ const flash = require('connect-flash');
 var MongoDBStore = require('connect-mongodb-session')(Session);
 
 const app = express();
-const Route = require('./js/main');
+const Route = require('./routes/main');
 const { mongoose_url } = require('./config.json');
 
-const PORT = process.env.PORT || 80;
+const PORT = process.env.PORT || 10384;
 const URL = process.env.MONGO_URL || mongoose_url;
 
 mongoose.connect(URL, {
@@ -46,13 +46,13 @@ app.use(Session({
 app.use(passport.initialize());
 app.use(passport.session());
 
-app.use(express.static(__dirname + "/public"));
 app.set('view engine', 'ejs');
 app.set('views', __dirname + '/views');
 app.use(bodyParser.urlencoded({extended : true})); 
 
+app.use(express.static(__dirname + '/'));
 app.use('/', Route);
 
 app.listen(PORT, function() {
-     console.log('http://localhost');
+     console.log('http://localhost:' + PORT);
 });
