@@ -1,5 +1,15 @@
 <link rel="stylesheet" type="text/css" href="/css/index.css" />
 
+            <div id="name">
+                <p>
+                    <!--만약 name 길이가 0보다 길면 name 띄워라-->
+                    <% if(name.length > 0) { %>
+                    <%= name %>님 반갑습니다.
+                    <% } else { %>
+                    로그인을 해주세요.
+                    <% } %>
+                </p>
+            </div>
             <div id="covid">
                 <div id="img">
                     <a href="http://ncov.mohw.go.kr/" target="_blank" title="국내 코로나 현황">

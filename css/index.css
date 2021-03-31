@@ -8,19 +8,13 @@
 }
 /* 메인끝 */
 
-/* 오른쪽 광고느낌 */
-#main > #rainbow {
-    display: block;
-    text-align: right;
-    position: absolute;
-    top: 16em;
-    left: auto;
-    right: 2em;
+
+/* 메세지 */
+#name {
+    font-size: 20px;
+    margin-bottom: 30px;
 }
-#main > #rainbow > img {
-    width: 22em;
-}
-/* 오른쪽 광고느낌 끝 */
+/* 메세지 끝 */
 
 /* 코로나 */
 #main > #covid {

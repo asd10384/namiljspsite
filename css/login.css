@@ -20,6 +20,7 @@
     font-size: 70%;
 }
 #form > .btn {
+    margin-top: 5px;
     cursor: pointer;
     padding: 0;
     padding-bottom: 0;
@@ -31,4 +32,11 @@
     font-size: 70%;
     color: white;
 }
-/* 시작 */
+#signup > a,
+#signup > a:active {
+    color: #617279;
+}
+#signup > a:hover {
+    color: #80939b;
+}
+/* 시작 끝 */

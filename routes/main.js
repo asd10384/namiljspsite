@@ -1,5 +1,5 @@
 
-const express = require("express");
+const express = require('express');
 const mongoose = require('mongoose');
 const crypto = require('crypto');
 const passport = require('passport');
@@ -9,12 +9,36 @@ const router = express.Router();
 const User = require('../modules/user');
 
 router.get('/', (req, res) => res.render('index', {name: (req.user) ? req.user.name : ''}));
-router.get("/login", (req, res) => res.render("login", {message: req.flash('login_message')}));
-router.get("/signup", (req, res) => res.render("signup", {page: "signup"}));
+router.get('/login', (req, res) => {
+    if (req.user) {
+        return res.send("<script 'type=text/javascript'>alert('이미 로그인이 되어있습니다.'); window.location='/'; </script>");
+    } else {
+        res.render('login', {message: req.flash('login_message')});
+    }
+});
+router.get('/signup', (req, res) => {
+    if (req.user) {
+        return res.send("<script 'type=text/javascript'>alert('이미 로그인이 되어있습니다.'); window.location='/'; </script>");
+    } else {
+        res.render('signup', {page: 'signup'});
+    }
+});
 router.get('/logout', function(req, res) {
     req.logout();
     res.redirect('/');
-})
+});
+router.get('/myaccount', (req, res) => {
+    console.log(req.user);
+    if (req.user) {
+        res.render('myaccount', {
+            name: req.user.name,
+            class: req.user.class,
+            id: req.user.id,
+        });
+    } else {
+        return res.send("<script 'type=text/javascript'>alert('먼저 로그인후 이용해주세요.'); window.location='/login'; </script>");
+    }
+});
 
 // 로그인 시작
 //로그인에 성공할 시 serializeUser 메서드를 통해서 사용자 정보를 세션에 저장
@@ -52,25 +76,25 @@ function (req, res) {
 // 로그인 끝
 
 // 회원가입 시작
-router.post("/signup", (req, res, next) => {
+router.post('/signup', (req, res, next) => {
     console.log(req.body);
     User.find({ id: req.body.id })
         .exec()
         .then(user => {
             if (user.length >= 1) {
-                res.send('<script type="text/javascript">alert("이미 존재하는 아이디입니다."); window.location="/signup"; </script>');
+                res.send("<script 'type=text/javascript'>alert('이미 존재하는 아이디입니다.'); window.location='/signup'; </script>");
             } else {
                 const user = new User({
                     _id: new mongoose.Types.ObjectId(),
                     name: req.body.name,
-                    class: req.body.class,
+                    class: (req.body.class).toString(),
                     id: req.body.id,
                     password: crypto.createHash('sha512').update(req.body.password).digest('base64') 
                 });
                 user.save()
                     .then(result => {
                         console.log(result);
-                        res.redirect("/");
+                        res.redirect('/');
                     })
                     .catch(err => {
                         console.log(err);
