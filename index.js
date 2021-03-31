@@ -15,7 +15,7 @@ const app = express();
 const Route = require('./routes/main');
 const { mongoose_url } = require('./config.json');
 
-const PORT = process.env.PORT || 10384;
+const PORT = process.env.PORT || 3000;
 const URL = process.env.MONGO_URL || mongoose_url;
 
 mongoose.connect(URL, {
