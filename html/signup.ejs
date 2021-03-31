@@ -3,18 +3,6 @@
             <form action="/signup" method="POST" class="signupform">
                 <div>
                     <p id="form">
-                        <label for="name">&ensp;&ensp;이름&ensp;&ensp;</label>
-                        <input name="name" type="text" required />
-                    </p>
-                </div>
-                <div>
-                    <p id="form">
-                        <label for="class">&ensp;&ensp;학번&ensp;&ensp;</label>
-                        <input name="class" type="number" required />
-                    </p>
-                </div>
-                <div>
-                    <p id="form">
                         <label for="id">&nbsp;아이디&nbsp;</label>
                         <input name="id" type="text" required />
                     </p>
@@ -22,7 +10,19 @@
                 <div>
                     <p id="form">
                         <label for="password">비밀번호</label>
-                        <input name="password" type="password" required />
+                        <input name="password" type="password" placeholder="6자리 이상" required />
+                    </p>
+                </div>
+                <div>
+                    <p id="form">
+                        <label for="classnum">&ensp;&ensp;학번&ensp;&ensp;</label>
+                        <input name="classnum" type="number" placeholder="예: 1101" required />
+                    </p>
+                </div>
+                <div>
+                    <p id="form">
+                        <label for="username">&ensp;&ensp;이름&ensp;&ensp;</label>
+                        <input name="username" type="text" placeholder="예: 홍길동" required />
                     </p>
                 </div>
                 <div>
