@@ -1,0 +1,34 @@
+
+/* 메인 */
+#main {
+    margin-top: 3.5em;
+    text-align: center;
+    color: white;
+    margin-bottom: 360px; /* 아래쪽 여백 설정 */
+}
+/* 메인끝 */
+
+/* 시작 */
+#form {
+    font-size: 25px;
+}
+#form > input {
+    padding: 6px;
+    padding-bottom: 3px;
+    width: 170px;
+    height: 20px;
+    font-size: 70%;
+}
+#form > .btn {
+    cursor: pointer;
+    padding: 0;
+    padding-bottom: 0;
+    width: 80px;
+    height: 50px;
+    border: 2px solid rgb(182, 182, 182);
+    background-color: #1e323b;
+    font-weight: bold;
+    font-size: 70%;
+    color: white;
+}
+/* 시작 */

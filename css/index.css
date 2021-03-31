@@ -1,0 +1,93 @@
+
+/* 메인 */
+#main {
+    margin-top: 3.5em;
+    text-align: center;
+    color: white;
+    margin-bottom: 360px; /* 아래쪽 여백 설정 */
+}
+/* 메인끝 */
+
+/* 오른쪽 광고느낌 */
+#main > #rainbow {
+    display: block;
+    text-align: right;
+    position: absolute;
+    top: 16em;
+    left: auto;
+    right: 2em;
+}
+#main > #rainbow > img {
+    width: 22em;
+}
+/* 오른쪽 광고느낌 끝 */
+
+/* 코로나 */
+#main > #covid {
+    margin-bottom: 1em;
+    display: block;
+}
+#main > #covid > #img > a > img {
+    width: 22em;
+}
+#main > #covid > #text {
+    margin-top: 0.5em;
+}
+#main > #covid > #text > a {
+    font-size: 1.25em;
+    color: rgb(170, 170, 170);
+}
+#main > #covid > #text > #t:active {
+    color: rgb(170, 170, 170);
+}
+#main > #covid > #text > #t:hover {
+    color: rgb(200, 200, 200);
+}
+/* 코로나 끝 */
+
+/* 알림 */
+#notice > p {
+    font-size: 1.35em;
+}
+/* 알림 끝 */
+
+/* 최근 수정사항 */
+#main > #add {
+    margin-top: 4em;
+}
+#main > #add > #title {
+    font-size: 1.8em;
+    font-weight: 600;
+}
+#main > #add > ul {
+    margin-top: 1em;
+    list-style: none;
+    padding-left: 0em;
+}
+#main > #add > ul > li {
+    font-size: 1.7em;
+    font-weight: 550;
+    color: rgb(230, 225, 205);
+}
+#main > #add > ul > ul {
+    list-style: none;
+    padding-left: 0em;
+}
+#main > #add > ul > ul > #title {
+    font-size: 1.35em;
+    margin-bottom: 0.2em;
+    margin-top: 0.5em;
+    font-weight: 550;
+}
+#main > #add > ul > ul > #title > #add {
+    color: rgb(80, 255, 255);
+}
+#main > #add > ul > ul > #title > #del {
+    color: rgb(240, 110, 110);
+}
+#main > #add > ul > ul > li {
+    font-size: 1em;
+    font-weight: normal;
+    margin-bottom: 0.1em;
+}
+/* 최근 수정사항 끝 */

@@ -50,8 +50,8 @@ app.set('view engine', 'ejs');
 app.set('views', __dirname + '/views');
 app.use(bodyParser.urlencoded({extended : true})); 
 
-app.use(express.static(__dirname + '/'));
 app.use('/', Route);
+app.use(express.static(__dirname + '/'));
 
 app.listen(PORT, function() {
      console.log('http://localhost:' + PORT);

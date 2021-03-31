@@ -1,14 +1,27 @@
 
-<div style="color:red; margin-top: 2%">
-    <!--만약 message의 길이가 0보다 길면 message를 띄워라-->
-    <% if(message.length > 0) { %>
-    <%= message %>
-    <% } %>
-</div>
-<form action="/login" method="POST" class="signupform">
-    <label for="id">아이디</label>
-    <input name="id" type="text" required />
-    <label for="password">비밀번호</label>
-    <input name="password" type="password" required />
-    <button class="btn">로그인!</button>
-</form>
+<!doctype html>
+<html lang='ko'>
+    <head>
+        <%-include('../html/header.ejs')%>
+
+        <meta name="title" content="사이트 모음 로그인페이지" />
+        <meta property="og:title" content="사이트 모음 로그인페이지" />
+        <meta name="description" content="남일고 관련 사이트 로그인페이지" />
+        <meta name="og:description" content="남일고 관련 사이트 로그인페이지" />
+
+        <meta property="url" content="https://namilsite.netlify.app/login" />
+        <meta property="og:url" content="https://namilsite.netlify.app/login" />
+
+        <meta property="image:alt" content="남일고 사이트 모음 로그인페이지" />
+        <meta property="og:image:alt" content="남일고 사이트 모음 로그인페이지" />
+
+        <title id="main_title">ㆍ로그인 페이지ㆍ</title>
+    </head>
+
+    <body>
+        <%-include('../html/template.ejs')%>
+        <div id="main">
+            <%-include('../html/login.ejs')%>
+        </div>
+    </body>
+</html>

@@ -1,0 +1,27 @@
+<link rel="stylesheet" type="text/css" href="/css/login.css" />
+
+            <div style="color:red; margin-top: 2%">
+                <!--만약 message의 길이가 0보다 길면 message를 띄워라-->
+                <% if(message.length > 0) { %>
+                <%= message %>
+                <% } %>
+            </div>
+            <form action="/login" method="POST" class="signupform">
+                <div>
+                    <p id="form">
+                        <label for="id">&nbsp;아이디&nbsp;</label>
+                        <input name="id" type="text" required /></p>
+                    </p>
+                </div>
+                <div>
+                    <p id="form">
+                        <label for="password">비밀번호</label>
+                        <input name="password" type="password" required />
+                    </p>
+                </div>
+                <div>
+                    <p id="form">
+                        <button class="btn">로그인!</button>
+                    </p>
+                </div>
+            </form>
