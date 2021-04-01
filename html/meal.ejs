@@ -1,4 +1,12 @@
 <link rel="stylesheet" type="text/css" href="/css/meal.css" />
 
-            <div id="kcal"></div>
-            <div id="meal">현재 제작중</div>
+            <div id="m">
+                <div id="text">남일고 급식</div>
+                <div id="kcal">
+                    <%=kcal%>
+                    <% if (kcal.length > 0) { %>
+                        <a id="tkcal"> kcal</a>
+                    <% } %>
+                </div>
+                <div id="meal"><%-meal%></div>
+            </div>

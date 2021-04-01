@@ -7,3 +7,22 @@
     margin-bottom: 360px; /* 아래쪽 여백 설정 */
 }
 /* 메인끝 */
+
+/* 급식 */
+#m > #text {
+    font-weight: bold;
+    font-size: 40px;
+    margin-bottom: 20px;
+}
+#m > #kcal {
+    font-size: 35px;
+    margin-bottom: 10px;
+}
+#m > #kcal > #tkcal {
+    font-size: 30px;
+}
+#m > #meal {
+    font-size: 25px;
+    line-height: 145%;
+}
+/* 급식 끝 */

@@ -8,6 +8,8 @@ const LocalStrategy = require('passport-local').Strategy;
 const router = express.Router();
 const User = require('../modules/user');
 
+const { getmeal } = require('./getmeal');
+
 /* 페이지 이동 */
 router.get('/', (req, res) => {
     res.render('index', {
@@ -34,7 +36,7 @@ router.get('/signup', (req, res) => {
         return res.send(`
             <script 'type=text/javascript'>
                 alert('이미 로그인이 되어있습니다.<br/>로그아웃하신 뒤 이용해주세요.');
-            window.location='/';
+                window.location='/';
             </script>
         `);
     } else {
@@ -47,6 +49,34 @@ router.get('/signup', (req, res) => {
 router.get('/logout', function(req, res) {
     req.logout();
     res.redirect('/');
+});
+router.get('/delete', function(req, res) {
+    if (req.user) {
+        User.findOneAndDelete({_id: req.user._id, id: req.user.id}, (err) => {
+            if (err) {
+                return res.send(`
+                    <script 'type=text/javascript'>
+                        alert('삭제할수 없습니다.');
+                        window.location='/';
+                    </script>
+                `);
+            }
+            req.logout();
+            return res.send(`
+                <script 'type=text/javascript'>
+                    alert('성공적으로 계정을 삭제했습니다.');
+                    window.location='/';
+                </script>
+            `);
+        });
+    } else {
+        return res.send(`
+            <script 'type=text/javascript'>
+                alert('먼저 로그인후 이용가능합니다.');
+                window.location='/';
+            </script>
+        `);
+    }
 });
 router.get('/myaccount', function(req, res) {
     if (req.user) {
@@ -64,10 +94,8 @@ router.get('/myaccount', function(req, res) {
         `);
     }
 });
-router.get('/meal', function(req, res) {
-    res.render('meal', {
-        username: (req.user) ? req.user.username : '',
-    });
+router.get('/meal', async function(req, res) {
+    return await getmeal(req, res);
 });
 router.get('/zoomid', function(req, res) {
     var classnum = (req.user) ? req.user.classnum[1] : 0;

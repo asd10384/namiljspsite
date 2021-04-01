@@ -23,3 +23,13 @@
     margin-bottom: 15px;
 }
 /* 정보 끝 */
+
+/* 삭제 */
+#delete > p > a,
+#delete > p > a:active {
+    color: #617279;
+}
+#delete > p > a:hover {
+    color: #80939b;
+}
+/* 삭제 끝 */
