@@ -8,6 +8,7 @@ const LocalStrategy = require('passport-local').Strategy;
 const router = express.Router();
 const User = require('../modules/user');
 
+/* 페이지 이동 */
 router.get('/', (req, res) => {
     res.render('index', {
     username: (req.user) ? req.user.username : '',
@@ -63,8 +64,21 @@ router.get('/myaccount', function(req, res) {
         `);
     }
 });
+router.get('/meal', function(req, res) {
+    res.render('meal', {
+        username: (req.user) ? req.user.username : '',
+    });
+});
+router.get('/zoomid', function(req, res) {
+    var classnum = (req.user) ? req.user.classnum[1] : 0;
+    res.render('zoomid', {
+        username: (req.user) ? req.user.username : '',
+        classnum: classnum,
+    });
+});
+/* 페이지 이동 끝 */
 
-// 로그인 시작
+/* 로그인 */
 // 라우터 처리
 router.get('/login', (req, res) => {
     var msg;
@@ -107,9 +121,9 @@ router.post('/login', passport.authenticate('local', {
 }), function(req, res) {
     res.redirect('/'); // 로그인 성공시 '/' 로 이동
 });
-// 로그인 끝
+/* 로그인 끝 */
 
-// 회원가입 시작
+/* 회원가입 */
 router.post('/signup', (req, res, next) => {
     User.find({ id: req.body.id }).exec().then(u => {
         if (req.body.classnum.length < 4) {
@@ -153,6 +167,6 @@ router.post('/signup', (req, res, next) => {
         });
     });
 });
-// 회원가입 끝
+/* 회원가입 끝 */
 
 module.exports = router;

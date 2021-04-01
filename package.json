@@ -18,7 +18,9 @@
   },
   "homepage": "https://github.com/asd10384/namiljspsite#readme",
   "dependencies": {
+    "axios": "^0.21.1",
     "body-parser": "^1.19.0",
+    "cheerio": "^1.0.0-rc.5",
     "connect-flash": "^0.1.1",
     "connect-mongodb-session": "^2.4.1",
     "crypto": "^1.0.1",
@@ -30,6 +32,7 @@
     "nodemailer": "^6.5.0",
     "nodemailer-smtp-transport": "^2.7.4",
     "passport": "^0.4.1",
-    "passport-local": "^1.0.0"
+    "passport-local": "^1.0.0",
+    "request": "^2.88.2"
   }
 }
